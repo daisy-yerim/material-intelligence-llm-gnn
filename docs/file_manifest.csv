@@ -1,0 +1,66 @@
+﻿path,size_kb,rows,columns
+.gitignore,0.3,,
+GITHUB_UPLOAD_CHECKLIST.md,1.0,,
+LICENSE,1.1,,
+README.md,7.1,,
+artifacts/README.md,0.3,,
+artifacts/cluster_interpretation/cluster_interpretation_summary.csv,3.1,10,"cluster_id, cluster_name, problem_type, representative_signals, llm_confidence"
+artifacts/cluster_interpretation/cluster_llm_interpretation_cache.json,15.2,,
+artifacts/graph_schema/gnn_edge_schema.csv,0.8,10,"edge_type, source_node, target_node, meaning"
+artifacts/graph_schema/gnn_node_schema.csv,0.4,9,"node_type, description, source_column"
+artifacts/ontology_prototype/build_erp_kg.py,24.4,,
+artifacts/ontology_prototype/material_graph_shapes.ttl,0.7,,
+artifacts/ontology_prototype/wms_headmessage_ontology_v2.owl,18.1,,
+config/domain_rules.yaml,0.9,,
+data_sample/README.md,0.4,,
+data_sample/sample_graph_edges.csv,0.2,4,"source, target, edge_type, weight, meta"
+data_sample/sample_graph_nodes.csv,0.3,5,"node_id, node_type, node_name, source_value"
+data_sample/sample_messages.csv,0.6,3,"message_id, message_text, source_domain, message_type, part_no, part_desc, product, org, date, cluster_id, cluster_name"
+docs/data_and_privacy.md,1.1,,
+docs/domain_rules.md,1.0,,
+docs/file_manifest.csv,5.1,59,"path, size_kb, rows, columns"
+docs/model_overview.md,3.4,,
+docs/model_release_plan.md,2.5,,
+docs/open_source_plan.md,2.3,,
+docs/pipeline.md,3.0,,
+docs/result_summary.md,2.3,,
+docs/roadmap.md,1.3,,
+docs/tutorial.md,1.8,,
+insight_engine/README.md,0.3,,
+model_cards/e_sgf_gat.md,1.5,,
+notebooks/1_embedding.ipynb,17.9,,
+notebooks/2_clustering.ipynb,19.4,,
+notebooks/3_cluster_interpretation_llm_semantic.ipynb,51.4,,
+notebooks/4_gnn_semantic_graph_fusion_gat.ipynb,216.4,,
+ontology/README.md,0.3,,
+prompts/README.md,0.5,,
+prompts/cluster_interpretation_prompt.md,1.4,,
+prompts/rag_relation_recommendation_template.md,1.0,,
+prompts/recommendation_explanation_prompt.md,0.8,,
+requirements.txt,0.3,,
+results/README.md,0.4,,
+results/metrics/auxiliary_baseline_comparison.csv,1.1,6,"split, model, mrr, hits@1, hits@3, hits@5, hits@10, auc, ap, model_group"
+results/metrics/baseline_comparison.csv,0.9,6,"split, model, mrr, hits@1, hits@3, hits@5, hits@10, auc, ap"
+results/metrics/gnn_model_comparison_by_seed.csv,7.4,30,"split, seed, model_key, model, model_group, best_epoch, stopped_epoch, stop_reason, best_valid_score, early_stopping_metric, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/metrics/link_prediction_metrics.csv,0.4,2,"split, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/metrics/link_prediction_training_history.csv,14.1,61,"epoch, loss, bce_loss, rank_loss, valid_auc, valid_ap, valid_pos_mean_score, valid_neg_mean_score, valid_mrr, valid_hits@1, valid_hits@3, valid_hits@5, valid_hits@10"
+results/metrics/model_comparison.csv,5.8,14,"split, model_key, model, model_group, num_seeds, best_epoch_mean, best_epoch_std, stopped_epoch_mean, stopped_epoch_std, best_valid_score_mean, best_valid_score_std, auc_mean, auc_std, ap_mean, ap_std, mrr_mean, mrr_std, hits@1_mean, hits@1_std, hits@3_mean, hits@3_std, hits@5_mean, hits@5_std, hits@10_mean, hits@10_std"
+results/metrics/model_to_model_comparison_by_seed.csv,10.7,42,"split, seed, model_key, model, model_group, best_epoch, stopped_epoch, stop_reason, best_valid_score, early_stopping_metric, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/metrics/model_to_model_comparison_summary.csv,5.8,14,"split, model_key, model, model_group, num_seeds, best_epoch_mean, best_epoch_std, stopped_epoch_mean, stopped_epoch_std, best_valid_score_mean, best_valid_score_std, auc_mean, auc_std, ap_mean, ap_std, mrr_mean, mrr_std, hits@1_mean, hits@1_std, hits@3_mean, hits@3_std, hits@5_mean, hits@5_std, hits@10_mean, hits@10_std"
+results/metrics/model_to_model_training_history_by_seed.csv,674.4,2121,"seed, model_key, model, model_group, epoch, loss, bce_loss, rank_loss, lr, early_stopping_metric, early_stopping_score, best_score_so_far, patience_counter, valid_auc, valid_ap, valid_pos_mean_score, valid_neg_mean_score, valid_mrr, valid_hits@1, valid_hits@3, valid_hits@5, valid_hits@10"
+results/metrics/proposed_e_sgf_gat_metrics_by_seed.csv,1.9,6,"split, seed, model_key, model, model_group, best_epoch, stopped_epoch, stop_reason, best_valid_score, early_stopping_metric, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/metrics/proposed_models_comparison_by_seed.csv,3.5,12,"split, seed, model_key, model, model_group, best_epoch, stopped_epoch, stop_reason, best_valid_score, early_stopping_metric, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/metrics/proposed_sgf_gat_metrics_by_seed.csv,1.8,6,"split, seed, model_key, model, model_group, best_epoch, stopped_epoch, stop_reason, best_valid_score, early_stopping_metric, auc, ap, pos_mean_score, neg_mean_score, mrr, hits@1, hits@3, hits@5, hits@10"
+results/recommendations/sample_recommendations.csv,0.4,3,"message_id, input_message, recommended_type, recommended_value, relation_type, score"
+src/__init__.py,0.1,,
+src/__pycache__/__init__.cpython-313.pyc,0.2,,
+src/__pycache__/build_graph.cpython-313.pyc,5.0,,
+src/__pycache__/preprocess.cpython-313.pyc,3.2,,
+src/__pycache__/recommend.cpython-313.pyc,6.2,,
+src/__pycache__/train_gnn.cpython-313.pyc,3.3,,
+src/__pycache__/validate_rules.cpython-313.pyc,3.0,,
+src/build_graph.py,3.5,,
+src/preprocess.py,1.8,,
+src/recommend.py,4.3,,
+src/train_gnn.py,1.9,,
+src/validate_rules.py,1.6,,

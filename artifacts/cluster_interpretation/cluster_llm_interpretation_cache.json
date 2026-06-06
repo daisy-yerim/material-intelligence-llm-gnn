@@ -1,0 +1,151 @@
+{
+  "cluster_0_e0dee561800b54a0f5d1ba4c8e717718": {
+    "final_cluster": 0,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "공정 재고 및 음수 자재 관리",
+      "llm_problem_type": "공정 재고 과잉 및 음수 자재 발생에 대한 관리 및 축소 활동이 필요함",
+      "llm_interpretation_memo": "주요 키워드가 '공정', '재고', '음수', '축소', '관리'를 중심으로 공정 재고 및 음수 자재에 대한 운영 및 관리 이슈를 다루고 있음을 나타냅니다.",
+      "llm_representative_signals": "공정 | 재고 | 음수 | 축소 | 관리",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"공정 재고 및 음수 자재 관리\", \"problem_type\": \"공정 재고 과잉 및 음수 자재 발생에 대한 관리 및 축소 활동이 필요함\", \"interpretation_memo\": \"주요 키워드가 '공정', '재고', '음수', '축소', '관리'를 중심으로 공정 재고 및 음수 자재에 대한 운영 및 관리 이슈를 다루고 있음을 나타냅니다.\", \"representative_signals\": [\"공정\", \"재고\", \"음수\", \"축소\", \"관리\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 0
+    }
+  },
+  "cluster_1_3ea12edfea478738888c6ff938c86c0b": {
+    "final_cluster": 1,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "과잉 재고 및 PO 관리 필요",
+      "llm_problem_type": "소요 계획 대비 과잉 재고 및 PO 발행 상태를 점검하고 소진 계획을 수립해야 하는 문제",
+      "llm_interpretation_memo": "주요 키워드와 샘플 메시지를 통해 재고 과잉 상태와 PO 발행 상태를 연계하여 관리해야 할 필요성을 나타냅니다.",
+      "llm_representative_signals": "계획 대비 과잉 | 과잉 재고 | PO 발행 | 소요 계획 대비 과잉 PO 발행된 아이템 집중 관리 필요",
+      "llm_confidence": 0.0,
+      "llm_raw_response": "{\"cluster_name\": \"과잉 재고 및 PO 관리 필요\", \"problem_type\": \"소요 계획 대비 과잉 재고 및 PO 발행 상태를 점검하고 소진 계획을 수립해야 하는 문제\", \"interpretation_memo\": \"주요 키워드와 샘플 메시지를 통해 재고 과잉 상태와 PO 발행 상태를 연계하여 관리해야 할 필요성을 나타냅니다.\", \"representative_signals\": [\"계획 대비 과잉\", \"과잉 재고\", \"PO 발행\", \"소요 계획 대비 과잉 PO 발행된 아이템 집중 관리 필요\"], \"confidence\": 0.0}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 1
+    }
+  },
+  "cluster_2_a5fd34d41c5dacfc5446aee817a6afc7": {
+    "final_cluster": 2,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "과잉재고 대비 초과 PO 발행 검토",
+      "llm_problem_type": "재고 과잉 상태임에도 불구하고 초과한 구매 주문(PO)이 발행되어 재고 관리의 불균형이 발생하고 있음",
+      "llm_interpretation_memo": "주요 키워드와 샘플 메시지를 종합했을 때, 특정 품목의 재고 과잉 상태를 인지하고 있음에도 불구하고 이를 반영하지 않은 채 초과한 구매 주문을 발행하는 상황에 대한 조정 검토가 필요함을 나타냅니다.",
+      "llm_representative_signals": "po | 과잉으로 | 조정 검토 | over 비율이 | 대비 | 과잉으로 조정 | 여전히 over",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"과잉재고 대비 초과 PO 발행 검토\", \"problem_type\": \"재고 과잉 상태임에도 불구하고 초과한 구매 주문(PO)이 발행되어 재고 관리의 불균형이 발생하고 있음\", \"interpretation_memo\": \"주요 키워드와 샘플 메시지를 종합했을 때, 특정 품목의 재고 과잉 상태를 인지하고 있음에도 불구하고 이를 반영하지 않은 채 초과한 구매 주문을 발행하는 상황에 대한 조정 검토가 필요함을 나타냅니다.\", \"representative_signals\": [\"po\", \"과잉으로\", \"조정 검토\", \"over 비율이\", \"대비\", \"과잉으로 조정\", \"여전히 over\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 2
+    }
+  },
+  "cluster_3_a6587692ac54e87bc6a1c83e15ded890": {
+    "final_cluster": 3,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "미소요 및 발주 과다 품목 조정",
+      "llm_problem_type": "실제 소요량 대비 발주된 품목이 과다하여 재고 및 구매 효율성을 개선해야 하는 상황입니다.",
+      "llm_interpretation_memo": "주요 키워드가 'PO(주문)', 'L/T(리드타임)', '과다', '조정', '대비' 등으로 구성되어 있으며, 미소요량과 주문량 간의 불균형을 해소하는 조정 작업이 핵심임을 나타냅니다.",
+      "llm_representative_signals": "po l/t 대비 | 주문 과다 | 발주 과다 | 조정 | 과다 품목",
+      "llm_confidence": 1.0,
+      "llm_raw_response": "{\"cluster_name\": \"미소요 및 발주 과다 품목 조정\", \"problem_type\": \"실제 소요량 대비 발주된 품목이 과다하여 재고 및 구매 효율성을 개선해야 하는 상황입니다.\", \"interpretation_memo\": \"주요 키워드가 'PO(주문)', 'L/T(리드타임)', '과다', '조정', '대비' 등으로 구성되어 있으며, 미소요량과 주문량 간의 불균형을 해소하는 조정 작업이 핵심임을 나타냅니다.\", \"representative_signals\": [\"po l/t 대비\", \"주문 과다\", \"발주 과다\", \"조정\", \"과다 품목\"], \"confidence\": 1.0}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 3
+    }
+  },
+  "cluster_4_ffa8c5115f692e41f6692ed43f85fc23": {
+    "final_cluster": 4,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "공정 및 음수율 관리 개선 필요",
+      "llm_problem_type": "공정 과잉 및 음수 발생 자재에 대한 처리 지연 및 음수율 개선이 필요함",
+      "llm_interpretation_memo": "공정 과잉률과 음수 발생 자재의 처리 지연일수 개선에 대한 요구사항이 주를 이루고 있어, 이 두 가지 관리 개선이 핵심 이슈임을 나타냅니다.",
+      "llm_representative_signals": "공정 Over율 관리는 양호 하며 음수 처리 지연일수 개선 필요함 | WIP 공정 Over율 관리는 양호 하며 음수 처리 지연일수 개선 필요함 | 공정 Over율 및 음수율 관리는 잘되고 있으나 음수 처리 지연일수 개선 | 레진류에 대한 공정 과잉 축소 운영 검토 및 음수 처리 일수개선 필요 | 음수 발생 자재에 대한 처리 일수는 양호 하나 음수율 개선 필요",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"공정 및 음수율 관리 개선 필요\", \"problem_type\": \"공정 과잉 및 음수 발생 자재에 대한 처리 지연 및 음수율 개선이 필요함\", \"interpretation_memo\": \"공정 과잉률과 음수 발생 자재의 처리 지연일수 개선에 대한 요구사항이 주를 이루고 있어, 이 두 가지 관리 개선이 핵심 이슈임을 나타냅니다.\", \"representative_signals\": [\"공정 Over율 관리는 양호 하며 음수 처리 지연일수 개선 필요함\", \"WIP 공정 Over율 관리는 양호 하며 음수 처리 지연일수 개선 필요함\", \"공정 Over율 및 음수율 관리는 잘되고 있으나 음수 처리 지연일수 개선\", \"레진류에 대한 공정 과잉 축소 운영 검토 및 음수 처리 일수개선 필요\", \"음수 발생 자재에 대한 처리 일수는 양호 하나 음수율 개선 필요\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 4
+    }
+  },
+  "cluster_5_17a662be01775754190214be52c7a74d": {
+    "final_cluster": 5,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "재고 및 과잉 재고 집중 관리 필요",
+      "llm_problem_type": "특정 품목 및 재고 금액에 대한 집중적인 관리가 필요함",
+      "llm_interpretation_memo": "메시지들이 재고 관리의 필요성, 과잉 재고의 예상 및 금액 변화 추세, 그리고 특정 품목에 대한 집중 관리를 요구하고 있어 재고 관리 이슈를 나타낸다고 판단했습니다.",
+      "llm_representative_signals": "재고 관리 | 과잉 재고 | 재고 금액 | 필요함 | 예상 | 관리 점수",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"재고 및 과잉 재고 집중 관리 필요\", \"problem_type\": \"특정 품목 및 재고 금액에 대한 집중적인 관리가 필요함\", \"interpretation_memo\": \"메시지들이 재고 관리의 필요성, 과잉 재고의 예상 및 금액 변화 추세, 그리고 특정 품목에 대한 집중 관리를 요구하고 있어 재고 관리 이슈를 나타낸다고 판단했습니다.\", \"representative_signals\": [\"재고 관리\", \"과잉 재고\", \"재고 금액\", \"필요함\", \"예상\", \"관리 점수\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 5
+    }
+  },
+  "cluster_6_69505ded541723439baaaa22ae1d4f15": {
+    "final_cluster": 6,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "과잉 재고 금액 집중 관리 필요",
+      "llm_problem_type": "특정 품목의 과잉 재고 금액 비중이 높아 이에 대한 집중적인 재고 관리가 필요함",
+      "llm_interpretation_memo": "메시지들이 재고의 과잉 예상 및 금액 비중을 언급하며 특정 품목에 대한 집중 관리를 요구하고 있어, 재고 금액 관리가 핵심 이슈임을 판단했습니다.",
+      "llm_representative_signals": "재고 | 과잉 | 과잉 재고 | 금액 | 재고 금액 | 금액 비중이 | 집중 관리 | 주요 Item",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"과잉 재고 금액 집중 관리 필요\", \"problem_type\": \"특정 품목의 과잉 재고 금액 비중이 높아 이에 대한 집중적인 재고 관리가 필요함\", \"interpretation_memo\": \"메시지들이 재고의 과잉 예상 및 금액 비중을 언급하며 특정 품목에 대한 집중 관리를 요구하고 있어, 재고 금액 관리가 핵심 이슈임을 판단했습니다.\", \"representative_signals\": [\"재고\", \"과잉\", \"과잉 재고\", \"금액\", \"재고 금액\", \"금액 비중이\", \"집중 관리\", \"주요 Item\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 6
+    }
+  },
+  "cluster_7_91d94b6fa9de50419ce619283231afa4": {
+    "final_cluster": 7,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "예상 재고 및 과잉 재고 집중 관리 필요",
+      "llm_problem_type": "예상 재고 금액의 증가 및 과잉 재고 발생 추세에 따른 집중적인 재고 관리가 요구됨",
+      "llm_interpretation_memo": "데이터는 재고 금액, 예상 재고, 과잉 재고, DIO(일일 재고) 등의 키워드를 포함하고 있어, 재고 수준과 금액 변화에 대한 집중적인 관리가 필요함을 나타냅니다.",
+      "llm_representative_signals": "재고, 관리, 재고 관리, 필요, item, 점수, 과잉, 예상, 점검, 관리 점수, 과잉 재고, 집중, 대비, 및, 금액, 재고 금액, 필요함, 비중, 주요, 예상 재고",
+      "llm_confidence": 0.95,
+      "llm_raw_response": "{\"cluster_name\": \"예상 재고 및 과잉 재고 집중 관리 필요\", \"problem_type\": \"예상 재고 금액의 증가 및 과잉 재고 발생 추세에 따른 집중적인 재고 관리가 요구됨\", \"interpretation_memo\": \"데이터는 재고 금액, 예상 재고, 과잉 재고, DIO(일일 재고) 등의 키워드를 포함하고 있어, 재고 수준과 금액 변화에 대한 집중적인 관리가 필요함을 나타냅니다.\", \"representative_signals\": [\"재고, 관리, 재고 관리, 필요, item, 점수, 과잉, 예상, 점검, 관리 점수, 과잉 재고, 집중, 대비, 및, 금액, 재고 금액, 필요함, 비중, 주요, 예상 재고\"], \"confidence\": 0.95}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 7
+    }
+  },
+  "cluster_8_5589756ab601bce81bfed74c7f47aede": {
+    "final_cluster": 8,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "부품 조달 차질 예상",
+      "llm_problem_type": "특정 부품의 구매 주문 부족으로 인해 생산에 차질이 예상됨",
+      "llm_interpretation_memo": "주요 키워드들이 'PO 부족', '조달 차질', '부족으로' 등을 반복적으로 사용하여 부품 구매 및 조달 과정에서 발생하는 문제를 명확히 나타내고 있습니다.",
+      "llm_representative_signals": "차질 | 차질 예상 | po | 부족으로 | 조달 차질 | 조달 | 예상 | shortage | 부족으로 생산",
+      "llm_confidence": 1.0,
+      "llm_raw_response": "{\"cluster_name\": \"부품 조달 차질 예상\", \"problem_type\": \"특정 부품의 구매 주문 부족으로 인해 생산에 차질이 예상됨\", \"interpretation_memo\": \"주요 키워드들이 'PO 부족', '조달 차질', '부족으로' 등을 반복적으로 사용하여 부품 구매 및 조달 과정에서 발생하는 문제를 명확히 나타내고 있습니다.\", \"representative_signals\": [\"차질\", \"차질 예상\", \"po\", \"부족으로\", \"조달 차질\", \"조달\", \"예상\", \"shortage\", \"부족으로 생산\"], \"confidence\": 1.0}",
+      "llm_error": "",
+      "llm_cache_hit": false,
+      "final_cluster": 8
+    }
+  },
+  "cluster_9_f96feecc17af00840c1efb766d900e52": {
+    "final_cluster": 9,
+    "model": "gemma4:e2b",
+    "result": {
+      "llm_cluster_name": "재고 회전율(DIO) 증가에 따른 자재 관리 강화 필요",
+      "llm_problem_type": "예상되는 재고 회전율(DIO) 증가에 대응하여 자재의 적정 재고 수준을 관리해야 함",
+      "llm_interpretation_memo": "주요 키워드와 샘플 메시지에서 'DIO(재고 회전율)' 증가와 '관리 필요', '과잉', '집중 관리'를 반복적으로 언급하여 재고 관리의 필요성을 나타냄.",
+      "llm_representative_signals": "전주대비 당월 예상 DIO 수준이 52% 이상 증가로 관리 강화 필요 | DIO 과잉 예상 Item 관리 필요 : IPM Module, Resin 등 | 과잉 재고 자재에 대한 목표 DIO 조정 및 집중 관리가 필요함",
+      "llm_confidence": 1.0,
+      "llm_raw_response": "{\"cluster_name\": \"재고 회전율(DIO) 증가에 따른 자재 관리 강화 필요\", \"problem_type\": \"예상되는 재고 회전율(DIO) 증가에 대응하여 자재의 적정 재고 수준을 관리해야 함\", \"interpretation_memo\": \"주요 키워드와 샘플 메시지에서 'DIO(재고 회전율)' 증가와 '관리 필요', '과잉', '집중 관리'를 반복적으로 언급하여 재고 관리의 필요성을 나타냄.\", \"representative_signals\": [\"전주대비 당월 예상 DIO 수준이 52% 이상 증가로 관리 강화 필요\", \"DIO 과잉 예상 Item 관리 필요 : IPM Module, Resin 등\", \"과잉 재고 자재에 대한 목표 DIO 조정 및 집중 관리가 필요함\"], \"confidence\": 1.0}",
+      "llm_error": "",
+      "llm_cache_hit": false
+    }
+  }
+}

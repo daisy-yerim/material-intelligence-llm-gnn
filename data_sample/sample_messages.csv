@@ -1,0 +1,4 @@
+﻿message_id,message_text,source_domain,message_type,part_no,part_desc,product,org,date,cluster_id,cluster_name
+M001,PO 과다로 특정 자재의 과잉재고 가능성이 증가함,RULE,risk,PART_001,Sample component A,Product_A,ORG_01,2025-01-01,1,과잉 재고 및 PO 관리 필요
+M002,구매 주문 부족으로 부품 조달 차질이 예상됨,DR,issue,PART_002,Sample component B,Product_B,ORG_02,2025-01-02,8,부품 조달 차질 예상
+M003,DIO 증가로 재고 회전율 관리 강화가 필요함,HEAD,summary,PART_003,Sample component C,Product_C,ORG_03,2025-01-03,9,재고 회전율(DIO) 증가에 따른 자재 관리 강화 필요

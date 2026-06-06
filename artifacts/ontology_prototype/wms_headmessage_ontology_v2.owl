@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:hm="http://example.org/wms-hm#">
+  <owl:Ontology rdf:about="http://example.org/wms-hm#">
+    <rdfs:comment xml:lang="ko">Product/RawMaterial 재고 관리, In/Out, Delivery Risk, Inventory Trend 및 HeadMessage 생성(룰/추론) 목적의 온톨로지 스키마임. 입력 피처는 Final_Rule_Deduction_Clean_add.xlsx, ITHM MASTER.xlsx, DR_Data.xlsx 컬럼 구조를 기반으로 반영한 모델임.</rdfs:comment>
+  </owl:Ontology>
+
+  <!-- ===================== -->
+  <!-- Core Classes -->
+  <!-- ===================== -->
+  <owl:Class rdf:about="http://example.org/wms-hm#Organization"/>
+  <owl:Class rdf:about="http://example.org/wms-hm#InventoryEntity"/>
+  <owl:Class rdf:about="http://example.org/wms-hm#Product">
+    <rdfs:subClassOf rdf:resource="http://example.org/wms-hm#InventoryEntity"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/wms-hm#RawMaterial">
+    <rdfs:subClassOf rdf:resource="http://example.org/wms-hm#InventoryEntity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/wms-hm#HeadMessage">
+    <rdfs:comment xml:lang="ko">사용자에게 노출되는 요약 메시지(헤드 메시지) 엔티티임.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/wms-hm#Observation">
+    <rdfs:comment xml:lang="ko">Date×ORG×Product 단위의 관측/스냅샷 레코드임.</rdfs:comment>
+  </owl:Class>
+
+  <!-- Assessments -->
+  <owl:Class rdf:about="http://example.org/wms-hm#Assessment"/>
+  <owl:Class rdf:about="http://example.org/wms-hm#InventoryTrendAssessment">
+    <rdfs:subClassOf rdf:resource="http://example.org/wms-hm#Assessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/wms-hm#DeliveryRiskAssessment">
+    <rdfs:subClassOf rdf:resource="http://example.org/wms-hm#Assessment"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/wms-hm#InOutControlAssessment">
+    <rdfs:subClassOf rdf:resource="http://example.org/wms-hm#Assessment"/>
+  </owl:Class>
+
+  <!-- Line-item models -->
+  <owl:Class rdf:about="http://example.org/wms-hm#PartInventoryLine">
+    <rdfs:comment xml:lang="ko">ITHM MASTER의 Part No._i ~ Sub i_5 묶음을 표현하는 라인아이템임.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/wms-hm#RuleDeductionLine">
+    <rdfs:comment xml:lang="ko">Final_Rule_Deduction의 Over Amount_i / Over Desc_i / Asset_i / REQ Amount_i 묶음을 표현하는 라인아이템임.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/wms-hm#DeliveryRiskLine">
+    <rdfs:comment xml:lang="ko">DR_Data의 Description.i / PO L/T.i / PO SUM.i / Gross REQ SUM.i / PO O&amp;S QTY.i / PO O&amp;S AMT.i 묶음을 표현하는 라인아이템임.</rdfs:comment>
+  </owl:Class>
+
+  <!-- ===================== -->
+  <!-- Object Properties -->
+  <!-- ===================== -->
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasOrganization">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#Organization"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#aboutProduct">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#Product"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#requiresRawMaterial">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Product"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#RawMaterial"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasAssessment">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#Assessment"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#generatesHeadMessage">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Assessment"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#HeadMessage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasHeadMessage">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#HeadMessage"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasPartInventoryLine">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasRuleDeductionLine">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/wms-hm#hasDeliveryRiskLine">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+  </owl:ObjectProperty>
+
+  <!-- ===================== -->
+  <!-- Datatype Properties -->
+  <!-- ===================== -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#date">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Observation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#orgCode">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#productCode">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#Product"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#rawMaterialCode">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RawMaterial"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#messageText">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#HeadMessage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#messageCategory">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#HeadMessage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <!-- ===== Final_Rule_Deduction_Clean_add.xlsx ===== -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#overAmount">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#overDescription">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#assetFlag">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#requiredAmount">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#lineIndex">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#RuleDeductionLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+
+  <!-- ===== ITHM MASTER.xlsx (Part inventory lines) ===== -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#partNumber">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#partDescription">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#unitType">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#inventoryScore">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#targetDIO">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#estimatedDIO">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#signal">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#estimatedInventoryQty">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#estimatedInventoryAmount">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#grossValue">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#subValue">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#grossIndex">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#subIndex">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#partLineIndex">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#PartInventoryLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+
+  <!-- Inventory Trend and related flags (ITHM MASTER tail columns) -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#inventoryTrendText">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#InventoryTrendAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#trendFlag">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#InventoryTrendAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#needByDate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#InventoryTrendAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+
+  <!-- ===== DR_Data.xlsx (Delivery Risk features) ===== -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#prevOverRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#prevProperRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#prevShortageRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#curOverRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#curProperRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#curShortageRate">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#overDiff">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#properDiff">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#shortageDiff">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#overOverPlusShortage">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#shortageOverPlusShortage">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#curOverMinusShortage">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#riskCategory">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <!-- DeliveryRiskLine fields -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#drLineIndex">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#drDescription">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#poLeadTimeDays">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#poSum">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#grossReqSum">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#poOverShortageQty">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#poOverShortageAmt">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskLine"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+
+  <!-- DR boolean indicator features -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#indicatorFlag">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#DeliveryRiskAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <!-- ===== In/Out Control (generalized) ===== -->
+  <owl:DatatypeProperty rdf:about="http://example.org/wms-hm#inOutControlText">
+    <rdfs:domain rdf:resource="http://example.org/wms-hm#InOutControlAssessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>

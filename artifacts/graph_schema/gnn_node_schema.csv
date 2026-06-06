@@ -1,0 +1,10 @@
+﻿node_type,description,source_column
+message,각 로그/메시지 행,"message_id, message_text"
+cluster,KMeans k=10 기반 의미 군집,final_cluster
+source_domain,"HEAD, ITEM, DR, RULE 출처 도메인",source_domain
+message_type,메시지 유형,message_type
+date,발생일,date
+org,조직/법인/거점,ORG
+product,제품군,Product
+part_no,품목 번호,"PartNo, Part No."
+part_desc,품목 설명,"Description, Desc."

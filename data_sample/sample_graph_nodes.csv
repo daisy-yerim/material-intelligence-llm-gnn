@@ -1,0 +1,6 @@
+﻿node_id,node_type,node_name,source_value
+message:M001,message,M001,PO 과다로 특정 자재의 과잉재고 가능성이 증가함
+part_no:PART_001,part_no,PART_001,Sample component A
+product:Product_A,product,Product_A,Product_A
+org:ORG_01,org,ORG_01,ORG_01
+cluster:1,cluster,과잉 재고 및 PO 관리 필요,cluster_1

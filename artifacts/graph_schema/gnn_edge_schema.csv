@@ -1,0 +1,11 @@
+﻿edge_type,source_node,target_node,meaning
+belongs_to_cluster,message,cluster,메시지가 특정 의미 군집에 속함
+from_source_domain,message,source_domain,메시지 출처 도메인
+has_message_type,message,message_type,메시지 유형
+occurred_on,message,date,메시지 발생일
+related_to_org,message,org,메시지가 특정 ORG와 연결됨
+related_to_product,message,product,메시지가 특정 제품군과 연결됨
+related_to_part_no,message,part_no,메시지가 특정 품목 번호와 연결됨
+related_to_part_desc,message,part_desc,메시지가 특정 품목 설명과 연결됨
+next_message_in_domain,message,message,동일 도메인 내 시간/순서상 다음 메시지
+cluster_transition_in_domain,cluster,cluster,동일 도메인 내 군집 간 순차 전이

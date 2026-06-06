@@ -1,0 +1,5 @@
+﻿source,target,edge_type,weight,meta
+message:M001,part_no:PART_001,related_to_part_no,1.0,
+message:M001,product:Product_A,related_to_product,1.0,
+message:M001,org:ORG_01,related_to_org,1.0,
+message:M001,cluster:1,belongs_to_cluster,1.0,

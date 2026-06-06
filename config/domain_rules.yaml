@@ -1,0 +1,51 @@
+required_message_columns:
+  - message_id
+  - message_text
+  - source_domain
+  - message_type
+  - part_no
+  - part_desc
+  - product
+  - org
+  - date
+  - cluster_id
+
+node_types:
+  - message
+  - part_no
+  - part_desc
+  - product
+  - org
+  - cluster
+  - source_domain
+  - message_type
+  - date
+
+edge_type_schema:
+  related_to_part_no:
+    source_type: message
+    target_type: part_no
+  related_to_part_desc:
+    source_type: message
+    target_type: part_desc
+  related_to_product:
+    source_type: message
+    target_type: product
+  related_to_org:
+    source_type: message
+    target_type: org
+  belongs_to_cluster:
+    source_type: message
+    target_type: cluster
+  from_source_domain:
+    source_type: message
+    target_type: source_domain
+  has_message_type:
+    source_type: message
+    target_type: message_type
+  occurred_on_date:
+    source_type: message
+    target_type: date
+  next_message_in_domain:
+    source_type: message
+    target_type: message

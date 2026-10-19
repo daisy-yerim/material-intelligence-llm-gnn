@@ -1,4 +1,4 @@
-# Material Intelligence with LLM-assisted Semantic Clustering and Heterogeneous GNN Link Prediction
+# Material Intelligence through LLM-Guided Semantic Clustering and Heterogeneous Graph Learning
 
 A public-facing research prototype for **semantic relation prediction in manufacturing ERP/MES material-management messages**.
 
